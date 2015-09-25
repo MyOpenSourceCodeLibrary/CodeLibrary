@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>gridster实例</title>
+    <!-- 调用jquery，注意你放置的目录不要搞错了哦！ -->
+    <script src="./jquery.min.js" type="text/javascript"></script>
+    <!-- 调用gridster.js和css，注意你放置的目录不要搞错了哦！ -->
+    <script src="./jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery.gridster.css">
+    <script>
+        //通过javascript脚本来配置拖动实例，随后我们会讲每个配置参数的意义
+
+        //首先定义一个变量gridster，为了以后调用gridster的方法
+        var gridster;
+        $(function(){
+            gridster = $(".gridster ul").gridster({    //通过jquery选择DOM实现gridster
+                widget_base_dimensions: [100, 120],    //模块的宽高 [宽,高]
+                widget_margins: [5, 5],    //模块的间距 [上下,左右]
+                draggable: {
+                    handle: 'header'    //模块内定义拖动的元素<header>，这里也支持jquery选择器，如"span.drag_handle"
+                }
+            }).data('gridster');
+        });
+    </script>
+    <!-- 当然，除了调用gridster.js和css，你也要为你的html写一些自己的style -->
+    <style>
+        .gridster ul{margin:0;}
+        .gridster ul li{list-style-type:none;border:1px solid #e0e0e0;}
+        .gridster ul li header{background: none repeat scroll 0% 0% #999;display: block;font-size: 20px;line-height: normal;padding: 4px 0px 6px;margin-bottom: 20px;cursor: move;text-align:center;}
+    </style>
+</head>
+<body>
+<div class="gridster">
+    <ul>
+        <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+            <!-- 这里写了一个header，对应配置里面的handle，鼠标落到header上面可以拖，而不是整个块 -->
+            <header>|||</header>
+            0
+        </li>
+    </ul>
+</div>
+</body>
+</html>
