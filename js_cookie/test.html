@@ -1,0 +1,11 @@
+<script src = 'cookieController.js'></script>
+<script>
+    setCookie('bob_test',12345,3600);
+    var test_cookie = getCookie('bob_test');
+    console.log(test_cookie);
+    if(test_cookie == '12345'){
+        console.log(22);
+        delCookie('bob_test');
+    }
+    getCookie('bob_test');
+</script>
