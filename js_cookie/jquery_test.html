@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script>
+    //创建cookie
+    $.cookie('bobo_test',123,'3600');
+    //读取cookie
+    var cookie = $.cookie('bobo_test');
+    console.log(cookie);
+    //删除cookie
+    if(cookie == 123){
+        $.cookie('bobo_test',null);
+    }
+</script>
+
+</html>
