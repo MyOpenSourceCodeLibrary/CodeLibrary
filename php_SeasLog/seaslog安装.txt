@@ -1,0 +1,41 @@
+seaslog的安装实录过程
+system:ubuntu-14.04
+
+1,下载
+git clone https://github.com/Neeke/SeasLog
+
+2,编译安装
+cd /SeasLog
+phpize
+./configure
+make
+sudo make install
+
+3,配置
+cd /etc/php5/mods-available
+sudo vim seaslog.ini
+
+; configuration for php SeasLog module
+extension = seaslog.so
+;默认log根目录
+seaslog.default_basepath = /log/seaslog-test
+;默认logger目录
+seaslog.default_logger = default
+;是否以type分文件 1是 0否(默认)
+seaslog.disting_type = 1
+;是否每小时划分一个文件 1是 0否(默认)
+seaslog.disting_by_hour = 1
+;是否启用buffer 1是 0否(默认)
+seaslog.use_buffer = 1
+;buffer中缓冲数量 默认0(不使用buffer_size)
+seaslog.buffer_size = 100
+;记录日志级别 默认0(所有日志)
+seaslog.level = 0
+;自动记录错误 默认1(开启)
+seaslog.trace_error = 1
+;自动记录异常信息 默认0(关闭)
+seaslog.trace_exception = 0
+
+4,启用
+sudo php5enmod seaslog
+sudo service apache2 restart
